@@ -62,6 +62,14 @@ return [
             'region' => env('AWS_REGION'),
             'bucket' => env('AWS_BUCKET'),
         ],
+        'images' => [
+            'driver' => 'local',
+            'root' => storage_path('app/images'),
+        ],
+        'videos' => [
+            'driver' => 'local',
+            'root' => storage_path('app/videos'),
+        ],
 
     ],
 
