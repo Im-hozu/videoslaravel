@@ -12,10 +12,7 @@
 */
 
 
-Route::get('/', function () {
-
-    return view('welcome');
-});
+Route::get('/','HomeController@index');
 
 Auth::routes();
 
@@ -32,4 +29,20 @@ Route::post('/guardar-video',array(
     'as' => 'saveVideo',
     'middleware' => 'auth',//Comprueba si estamos logeados
     'uses' => 'VideoController@saveVideo'
+));
+
+Route::get('/miniatura/{filename}',array(
+    'as' => 'imageVideo',
+    'uses' => 'VideoController@getImage'
+));
+
+Route::get('/video/{video_id}',array(
+    'as' => 'detailVideo',
+    'uses' => 'VideoController@getVideoDetail'
+
+));
+
+Route::get('/video-file/{filename}',array(
+    'as' => 'fileVideo',
+    'uses' => 'VideoController@getVideo'
 ));

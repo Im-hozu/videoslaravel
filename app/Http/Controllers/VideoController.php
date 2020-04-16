@@ -55,4 +55,27 @@ class VideoController extends Controller
             'message' => 'El vídeo se ha subido correctamente'
         ));
     }
+
+    //Devuelve la imagen 
+    public function getImage($filename){
+        $file = \Storage::disk('images')->get($filename);
+
+        return new Response($file, 200);
+    }
+
+    //Nos carga la página de un video en concreto
+    public function getVideoDetail($video_id){
+        $video = Video::find($video_id);
+        return view('video.detail',array(
+            'video' => $video
+        ));
+
+    }
+
+    //Devuelve el video 
+    public function getVideo($filename){
+        $file = \Storage::disk('videos')->get($filename);
+
+        return new Response($file, 200);
+    }
 }

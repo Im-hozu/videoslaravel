@@ -3,6 +3,8 @@
 namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
+use App\Http\Requests;
+use App\Video;
 
 class HomeController extends Controller
 {
@@ -22,7 +24,16 @@ class HomeController extends Controller
      * @return \Illuminate\Http\Response
      */
     public function index()
-    {
-        return view('home');
+    {   
+        //Usando querybuilder
+        //$videos = DB::table('videos')->paginate(5);
+
+        //Usando el modelo
+        $videos = Video::orderBy('id','desc')->paginate(5);
+        return view('home',array(
+            'videos' => $videos
+
+           
+        ));
     }
 }
