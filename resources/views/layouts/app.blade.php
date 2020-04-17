@@ -84,6 +84,11 @@
         </nav>
 
         @yield('content')
+
+        <footer class="col-md-10 col-md-offset-3">
+        <hr/>
+        Web simple de videos 2020
+        </footer>
     </div>
 
     <!-- Scripts -->

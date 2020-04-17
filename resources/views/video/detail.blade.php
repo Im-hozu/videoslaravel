@@ -1,7 +1,7 @@
 @extends('layouts.app')
 
 @section('content')
-    <div class="col-md-10 col-md-offset-3">
+    <div class="col-md-10 col-md-offset-2">
         <h2>{{$video->title}}</h2>
         <hr/>
 
@@ -23,6 +23,9 @@
                 </div>
             </div>
             <!--Comentarios-->
+            
+            @include('video.comments')
+            
         </div>
     </div>
 @endsection
